@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +7,22 @@
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* CSS cho thanh navbar được cố định */
-    .fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000; /* Đảm bảo thanh navbar hiển thị trên top */
-      background-color: #fff; /* Màu nền của thanh navbar khi cố định */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng để tạo hiệu ứng */
-    }
-  </style>
 </head>
-
 <body>
   <header>
-    <div class="logo">Logo</div>
+    <div class="logo"><img src="https://phaochidomy.com/wp-content/uploads/2022/07/logo.png" alt=""></div>
     <div class="search-bar">
       <input id="searchInput" type="text" placeholder="Search...">
       <button id="searchButton" type="button"><i class="fas fa-search"></i></button>
     </div>
     <div id="searchResults"></div>
-
+    
     <div class="text">
       <i class="fa-duotone fa-phone"></i>
       HOTLINE:<b><br>0000000000</b>
     </div>
   </header>
+
   <nav>
     <ul>
       <li><a href="#">Trang chủ</a></li>
@@ -51,6 +38,7 @@
       <li><a href="#">Liên hệ</a></li>
     </ul>
   </nav>
+  <button class="menu-toggle" onclick="toggleNavbar()">&#9776;</button>
 
   <div class="slider-container">
     <div class="slider">
@@ -63,16 +51,5 @@
   </div>
 
   <script src="main.js"></script>
-  <script>
-    window.addEventListener('scroll', function() {
-      var navbar = document.querySelector('nav');
-      if (window.scrollY > 0) {
-        navbar.classList.add('fixed');
-      } else {
-        navbar.classList.remove('fixed');
-      }
-    });
-  </script>
 </body>
-
 </html>

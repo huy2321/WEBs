@@ -1,38 +1,72 @@
 body {
-    overflow-x: hidden; /* Ngăn chặn cuộn ngang */
+    overflow-x: hidden;
+    /* Ngăn chặn cuộn ngang */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     display: flex;
-    min-height: 100vh; /* Đảm bảo body chiếm ít nhất cả chiều cao của viewport */
-    flex-direction: column; /* Xếp cột để các phần tử con sắp xếp từ trên xuống dưới */
+    min-height: 100vh;
+    /* Đảm bảo body chiếm ít nhất cả chiều cao của viewport */
+    flex-direction: column;
+    /* Xếp cột để các phần tử con sắp xếp từ trên xuống dưới */
 }
 
 
-header, nav {
-    flex: 0 0 auto; /* Phần header và navbar có độ co giãn là 0 và không bị đẩy ra */
-    width: 100%; /* Đảm bảo rằng header và navbar sẽ chiếm toàn bộ chiều rộng */
+header,
+nav {
+    flex: 0 0 auto;
+    /* Phần header và navbar có độ co giãn là 0 và không bị đẩy ra */
+    width: 100%;
+    /* Đảm bảo rằng header và navbar sẽ chiếm toàn bộ chiều rộng */
 }
 
 header {
-    background-color: #fff; /* Đổi màu nền thành trắng */
-    color: #333; /* Đổi màu chữ thành đen hoặc màu tối */
-    padding: 10px 20px;
+    background-color: #fff;
+    /* Đổi màu nền thành trắng */
+    color: #333;
+    /* Đổi màu chữ thành đen hoặc màu tối */
+    padding: 20px 20px;
+
     display: flex;
-    justify-content: space-around; /* Căn giữa nếu muốn */
+    /* Sử dụng flexbox để căn đều các phần tử trong header */
+    justify-content: space-between;
+    /* Căn các phần tử đều nhau theo chiều ngang */
     align-items: center;
+    /* Căn các phần tử theo chiều dọc */
+
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    flex: 1;
+
+   
+}
+.logo img {
+    width: 150px; /* Đặt chiều rộng của logo */
+    height: auto; /* Chiều cao sẽ tự động điều chỉnh để giữ tỷ lệ khung hình */
 }
 
+
 .search-bar {
+    flex: 1;
+    /* Phần thanh tìm kiếm sẽ chiếm một phần tỉ lệ của header */
     margin-left: 20px;
-    position: relative; /* Đặt vị trí tương đối cho phần thanh tìm kiếm */
+    position: relative;
 }
+
+.text {
+    flex: 1;
+    /* Phần hotline sẽ chiếm một phần tỉ lệ của header */
+}
+
+/* Đảm bảo các phần trong header có cùng chiều cao */
+header>* {
+    flex: 1;
+}
+
 
 .search-bar input[type="text"] {
     width: 300px;
@@ -40,13 +74,15 @@ header {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    border-bottom: 1px solid #ccc; /* Thêm đường kẻ chân */
+    border-bottom: 1px solid #ccc;
+    /* Thêm đường kẻ chân */
 }
 
 .search-bar #searchButton[type="button"] {
     background-color: transparent;
     color: #29336C;
-    padding: 8px 10px; /* Điều chỉnh kích thước của nút */
+    padding: 8px 10px;
+    /* Điều chỉnh kích thước của nút */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -71,8 +107,10 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Căn các mục với khoảng cách đều nhau */
-    align-items: center; /* Căn các mục theo trục dọc */
+    justify-content: space-between;
+    /* Căn các mục với khoảng cách đều nhau */
+    align-items: center;
+    /* Căn các mục theo trục dọc */
 }
 
 nav ul li {
@@ -96,7 +134,8 @@ nav ul li a {
 
 
 nav ul li:hover {
-    background-color:rgb(0, 68, 255); /* Thay đổi màu nền khi hover */
+    background-color: #00A0CE;
+    /* Thay đổi màu nền khi hover */
 }
 
 
@@ -106,9 +145,10 @@ nav ul li:hover {
     position: absolute;
     background-color: #29336C;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-    top: 100%; /* Dropdown sẽ xuất hiện dưới mục cha */
+    top: 100%;
+    /* Dropdown sẽ xuất hiện dưới mục cha */
     left: 0;
 }
 
@@ -123,8 +163,10 @@ nav ul li:hover {
     display: block;
     animation: slideIn 0.3s ease-in-out;
 }
+
 a:hover {
-    background-color: rgb(0, 68, 255); /* Thay đổi màu nền của dropdown khi hover */
+    background-color: #00A0CE;
+    /* Thay đổi màu nền của dropdown khi hover */
 }
 
 @keyframes slideIn {
@@ -132,20 +174,24 @@ a:hover {
         transform: translateY(-10px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
- /* BANNER */
+/* BANNER */
 /* CSS hiện có */
 .slider-container {
     position: relative;
     width: 100%;
-    max-width: 100%; /* Giữ chiều rộng tối đa bằng với trang web */
-    margin: 0 auto; /* Căn giữa banner */
-    overflow: hidden; /* Ẩn phần ảnh vượt ra khỏi banner */
+    max-width: 100%;
+    /* Giữ chiều rộng tối đa bằng với trang web */
+    margin: 0 auto;
+    /* Căn giữa banner */
+    overflow: hidden;
+    /* Ẩn phần ảnh vượt ra khỏi banner */
 }
 
 .slider {
@@ -154,7 +200,8 @@ a:hover {
 
 .slide {
     width: 100%;
-    transition: transform 0.5s ease; /* Hiệu ứng chuyển đổi mềm mại */
+    transition: transform 0.5s ease;
+    /* Hiệu ứng chuyển đổi mềm mại */
 }
 
 .prev,
@@ -167,7 +214,8 @@ a:hover {
     padding: 10px;
     cursor: pointer;
     font-size: 20px;
-    transition: background-color 0.3s; /* Hiệu ứng màu nền */
+    transition: background-color 0.3s;
+    /* Hiệu ứng màu nền */
 }
 
 .prev {
@@ -180,7 +228,8 @@ a:hover {
 
 .prev:hover,
 .next:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Đổi màu nền khi hover */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Đổi màu nền khi hover */
 }
 
 
@@ -190,10 +239,151 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Đảm bảo thanh navbar hiển thị trên top */
-    background-color: #29336C; /* Màu nền của thanh navbar khi cố định */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng để tạo hiệu ứng */
+    z-index: 1000;
+    /* Đảm bảo thanh navbar hiển thị trên top */
+    background-color: #29336C;
+    /* Màu nền của thanh navbar khi cố định */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng để tạo hiệu ứng */
 }
 
+/* CSS cho chế độ màn hình di động */
+@media only screen and (max-width: 768px) {
+    /* Ở đây bạn có thể thêm các điều chỉnh cho giao diện di động */
 
+    /* Ẩn phần thanh navbar */
+    nav {
+        display: none;
+    }
 
+    /* Hiển thị nút toggle cho thanh navbar */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hiển thị logo ở chế độ di động */
+    .logo {
+        display: block;
+        text-align: center;
+        /* Căn giữa logo */
+        margin-bottom: 20px;
+        /* Khoảng cách dưới logo */
+    }
+
+    /* Hiển thị phần tìm kiếm ở chế độ di động */
+    .search-bar {
+        margin: 0 auto;
+        /* Căn giữa */
+        text-align: center;
+        /* Căn giữa các phần tử con */
+        margin-bottom: 20px;
+        /* Khoảng cách dưới */
+    }
+
+    /* Thiết lập cho phần slider chiếm toàn bộ chiều rộng */
+    .slider-container {
+        width: 100%;
+    }
+
+    /* Ẩn các nút chuyển slide */
+    .prev,
+    .next {
+        display: none;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    /* Đặt vị trí cố định để nút không bị di chuyển khi cuộn trang */
+    top: 10px;
+    /* Đặt khoảng cách từ trên xuống */
+    right: 10px;
+    /* Đặt khoảng cách từ phải sang */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* CSS cho nút toggle ở chế độ di động */
+@media only screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        /* Hiển thị nút toggle ở chế độ di động */
+    }
+}
+
+/* Ẩn hotline ở chế độ di động */
+@media only screen and (max-width: 768px) {
+    .text {
+        display: none;
+    }
+
+    .search-bar input[type="text"] {
+        display: none;
+    }
+
+}
+
+/* Đặt thanh tìm kiếm sát vào lề bên trái ở chế độ di động */
+@media only screen and (max-width: 768px) {
+    .search-bar {
+        text-align: left;
+        /* Căn trái */
+        margin-left: 10px;
+        /* Khoảng cách từ lề trái */
+    }
+}
+
+/* Đặt logo vào giữa ở chế độ di động */
+@media only screen and (max-width: 768px) {
+    .logo {
+        text-align: center;
+        /* Căn giữa */
+        margin: 0 auto;
+        /* Margin tự động để căn giữa */
+    }
+}
+
+/* Căn đều các phần trong header ở chế độ mobile */
+@media only screen and (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Căn giữa các phần */
+    }
+
+    /* .logo,
+    .search-bar,
+    .text {
+        width: 100%;
+    } */
+
+    /* Đảm bảo các phần trong header có cùng khoảng cách giữa nhau */
+    header>* {
+        margin-bottom: 10px;
+        /* Khoảng cách giữa các phần */
+    }
+}
+
+/* Đảm bảo logo được căn giữa theo trục dọc ở chế độ mobile */
+@media only screen and (max-width: 768px) {
+    .logo {
+        text-align: center;
+        /* Căn giữa theo chiều ngang */
+        margin: 0 auto;
+        /* Margin tự động để căn giữa */
+    }
+}
+
+/* Đảm bảo chữ logo cùng dòng với header ở chế độ mobile */
+@media only screen and (max-width: 768px) {
+    .logo {
+        display: flex;
+        /* Sử dụng flexbox */
+        align-items: center;
+        /* Căn chữ logo theo chiều dọc */
+    }
+}
