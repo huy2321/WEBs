@@ -1,0 +1,199 @@
+body {
+    overflow-x: hidden; /* Ngăn chặn cuộn ngang */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh; /* Đảm bảo body chiếm ít nhất cả chiều cao của viewport */
+    flex-direction: column; /* Xếp cột để các phần tử con sắp xếp từ trên xuống dưới */
+}
+
+
+header, nav {
+    flex: 0 0 auto; /* Phần header và navbar có độ co giãn là 0 và không bị đẩy ra */
+    width: 100%; /* Đảm bảo rằng header và navbar sẽ chiếm toàn bộ chiều rộng */
+}
+
+header {
+    background-color: #fff; /* Đổi màu nền thành trắng */
+    color: #333; /* Đổi màu chữ thành đen hoặc màu tối */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around; /* Căn giữa nếu muốn */
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.search-bar {
+    margin-left: 20px;
+    position: relative; /* Đặt vị trí tương đối cho phần thanh tìm kiếm */
+}
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc; /* Thêm đường kẻ chân */
+}
+
+.search-bar #searchButton[type="button"] {
+    background-color: transparent;
+    color: #29336C;
+    padding: 8px 10px; /* Điều chỉnh kích thước của nút */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Thay đổi màu nền của nút khi hover */
+.search-bar button[type="submit"]:hover {
+    background-color: #29336c60;
+}
+
+nav {
+    background-color: #29336C;
+    color: #fff;
+    /* padding: 10px 20px; */
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Căn các mục với khoảng cách đều nhau */
+    align-items: center; /* Căn các mục theo trục dọc */
+}
+
+nav ul li {
+    padding: 10px 30px;
+    position: relative;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+
+
+nav ul li:hover {
+    background-color:rgb(0, 68, 255); /* Thay đổi màu nền khi hover */
+}
+
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #29336C;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Dropdown sẽ xuất hiện dưới mục cha */
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: slideIn 0.3s ease-in-out;
+}
+a:hover {
+    background-color: rgb(0, 68, 255); /* Thay đổi màu nền của dropdown khi hover */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+ /* BANNER */
+/* CSS hiện có */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Giữ chiều rộng tối đa bằng với trang web */
+    margin: 0 auto; /* Căn giữa banner */
+    overflow: hidden; /* Ẩn phần ảnh vượt ra khỏi banner */
+}
+
+.slider {
+    display: flex;
+}
+
+.slide {
+    width: 100%;
+    transition: transform 0.5s ease; /* Hiệu ứng chuyển đổi mềm mại */
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s; /* Hiệu ứng màu nền */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Đổi màu nền khi hover */
+}
+
+
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Đảm bảo thanh navbar hiển thị trên top */
+    background-color: #29336C; /* Màu nền của thanh navbar khi cố định */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng để tạo hiệu ứng */
+}
+
+
+
